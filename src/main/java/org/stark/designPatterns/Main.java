@@ -1,6 +1,8 @@
 package org.stark.designPatterns;
-
+import org.stark.designPatterns.CreationDesignPatterns.FactoryPatternPackage.FactoryPattern;
+import org.stark.designPatterns.CreationDesignPatterns.FactoryPatternPackage.Shape;
 import org.stark.designPatterns.CreationDesignPatterns.SingletonPattern;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -9,5 +11,9 @@ public class Main {
         SingletonPattern s2 = SingletonPattern.getInstance();
         System.out.println(s1 == s2); // true (same object)
         s1.showMessage();
+
+        FactoryPattern factory = new FactoryPattern();
+        Shape shape1 = factory.getShape("circle");
+        shape1.draw();
     }
 }
