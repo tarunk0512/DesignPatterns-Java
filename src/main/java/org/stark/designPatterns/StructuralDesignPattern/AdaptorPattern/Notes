@@ -1,0 +1,20 @@
+ private OldPrinter oldPrinter;
+
+    public PrinterAdapter(OldPrinter oldPrinter) {
+        this.oldPrinter = oldPrinter;
+    }
+
+
+OldPrinter oldPrinter → this is a parameter (local variable) created on the stack
+when you call new PrinterAdapter(new OldPrinter()).
+
+this.oldPrinter → this is a field (instance variable) of the PrinterAdapter object
+stored in the heap.
+
+When you write this.oldPrinter = oldPrinter;:
+
+You are copying the reference from the local variable (oldPrinter parameter) into the
+PrinterAdapter object’s field.
+
+So after the constructor finishes, your adapter object remembers the legacy printer object
+ for future use.
