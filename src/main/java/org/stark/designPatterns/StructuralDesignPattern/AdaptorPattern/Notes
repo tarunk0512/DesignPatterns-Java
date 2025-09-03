@@ -18,3 +18,25 @@ PrinterAdapter object’s field.
 
 So after the constructor finishes, your adapter object remembers the legacy printer object
  for future use.
+
+Stack (method frames)                  Heap (Objects)
+--------------------          -------------------------------
+op  ----------------------->  OldPrinter object @0x001
+pa  ----------------------->  PrinterAdapter object @0x002
+                                |
+                                | oldPrinter → @0x001 (OldPrinter)
+
+public PrinterAdapter(OldPrinter oldPrinter) {
+    this.oldPrinter = oldPrinter;
+}
+
+oldPrinter (as in parameter) → This is a local variable inside the constructor.
+It exists on the stack when the constructor runs.
+
+It holds a reference (pointer) to the OldPrinter object created in main().
+
+this.oldPrinter (instance field) → This is a field inside the PrinterAdapter
+object (on the heap).
+
+When you assign this.oldPrinter = oldPrinter;,
+you are copying the same reference from the stack parameter into the heap field.
